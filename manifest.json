@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "version": "1",
+    "name": "YT-Chapter Scrubber",
+    "description": "Jump between Youtube Video Chapters with Shortcuts",
+    "icons": {
+        "128": "icons/icon128.png"
+    },
+    "content_scripts": [
+        {
+            "js": ["yt-worker.js"],
+            "matches": ["https://*.youtube.com/*"]
+        }
+    ],
+    "web_accessible_resources": [{
+        "resources":["inject.js"],
+        "matches": ["https://*.youtube.com/*"]
+    }]
+}
