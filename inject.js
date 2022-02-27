@@ -1,13 +1,12 @@
 console.log('yt-script injected.');
 
 document.addEventListener('keydown', function(event){
-    console.log(event.target);
     if(event.target.tagName.toLowerCase() == 'input')
         return;
         
-    if(event.key == ']')
+    if(event.key == forwards)
         nextChapter();
-    else if(event.key == '[')
+    else if(event.key == backwards)
         previousChapter();
 });
 
@@ -21,8 +20,8 @@ function getPlayerAndTimes(){
             seconds += section * Math.pow(60, Math.abs(sections.length - index - 1));
         return seconds;
     });
-    let player = document.getElementsByTagName('ytd-player')[0].getPlayer();
-    return [timestamps, player];
+    let player = document.querySelector('ytd-player[id="ytd-player"]');
+    return [timestamps, player.getPlayer()];
 }
 
 function nextChapter(){
